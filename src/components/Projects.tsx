@@ -3,7 +3,7 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "Real Estate Tokenization Platform",
+      title: "PropChain",
       description: "A blockchain-based platform for tokenizing real estate properties, enabling fractional ownership and seamless property trading through smart contracts.",
       tech: ["React", "Solidity", "Web3.js", "TailwindCSS"],
       gradient: "from-purple-600 to-blue-600",
@@ -12,16 +12,16 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Digital Asset Management Tool",
-      description: "A comprehensive financial management application for securing and managing digital assets with advanced security features and intuitive user interface.",
+      title: "FVP",
+      description: "A comprehensive financial management tool for securing and managing digital assets with advanced security features and intuitive user interface.",
       tech: ["Next.js", "TypeScript", "Express.js", "MongoDB"],
       gradient: "from-green-600 to-teal-600",
-      liveDemo: "https://fvkryfe.vercel.app",
-      githubLink: "https://github.com/Felista-Njeri/fvkryfe",
+      liveDemo: "https://fvp.finance",
+      githubLink: "https://github.com/Felista-Njeri",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Web3 Bootstrap NPM Package",
+      title: "create-next-wagmi-shadcn",
       description: "An open-source NPM package that provides developers with essential tools and templates for quickly bootstrapping Web3 projects and DApps.",
       tech: ["Node.js", "CLI", "Templates", "Web3"],
       gradient: "from-orange-600 to-red-600",
@@ -30,7 +30,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Consultancy Web Application",
+      title: "Jo&Al Knowledge Experts",
       description: "A modern, responsive web application for a consultancy firm featuring dynamic content management, client portal, and interactive service showcase.",
       tech: ["React", "TailwindCSS", "Framer Motion", "CMS"],
       gradient: "from-pink-600 to-purple-600",

@@ -1,4 +1,6 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { Button } from "./ui/button";
+import { Link } from "react-router";
 
 const Projects = () => {
   const projects = [
@@ -99,6 +101,13 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center">
+          <Button asChild className="text-center text-md mt-6 bg-transparent hover:bg-transparent">
+            <Link to="https://github.com/Felista-Njeri" target="_blank">
+              View All Projects <ArrowRight />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

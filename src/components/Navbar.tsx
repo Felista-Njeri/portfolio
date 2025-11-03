@@ -13,6 +13,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
+    { name: "Home", href: "hero" },
     { name: "About", href: "about" },
     { name: "Skills", href: "skills" },
     { name: "Projects", href: "projects" },
@@ -45,30 +46,15 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden py-6 space-y-4 animate-fade-in bg-slate-900">
-          <button
-            onClick={() => scrollToSection("about")}
-            className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
-          >
-            Skills
-          </button>
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
-          >
-            Projects
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
-          >
-            Contact
-          </button>
+          {navLinks.map((link) => (
+            <button
+             key={link.name}
+             onClick={() => scrollToSection(link.href)}
+             className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
+            >
+              {link.name}
+            </button>
+          ))}
         </div>
       )}
     </header>

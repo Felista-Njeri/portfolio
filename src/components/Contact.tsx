@@ -60,7 +60,7 @@ const Contact = () => {
             <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-2xl">
               <h3 className="text-xl font-bold text-white mb-6">Follow Me</h3>
               <div className="flex gap-4">
-                <a href="www.linkedin.com/in/felista-njeri" target="_blank" className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <a href="https://www.linkedin.com/in/felista-njeri" target="_blank" className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
                   <span className="text-white font-bold">in</span>
                 </a>
                 <a href="https://x.com/njerinjeri__" target="_blank" className="w-12 h-12 bg-gradient-to-r from-gray-800 to-black rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">

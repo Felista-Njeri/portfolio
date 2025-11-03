@@ -45,13 +45,13 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="w-full py-10">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-        My Skills
-      </h2>
-      <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-    </div>
+    <section id="skills" className="w-full py-10">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          My Skills
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+      </div>
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto px-4 md:px-0">
         {skills.map((skill) => (
           <li
@@ -59,8 +59,10 @@ export default function Skills() {
             className={`rounded-2xl px-5 py-7 flex flex-col items-center
             border border-border/30 hover:scale-105 hover:border-purple-400`}
           >
-            <skill.icon size={40} className="text-purple-400"  />
-            <span className="text-white text-lg font-semibold pt-2">{skill.label}</span>
+            <skill.icon size={40} className="text-purple-400" />
+            <span className="text-white text-lg font-semibold pt-2">
+              {skill.label}
+            </span>
           </li>
         ))}
       </ul>

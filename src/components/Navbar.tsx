@@ -28,7 +28,7 @@ const Navbar = () => {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-purple-400"
+              className="text-primary-foreground"
             >
               {link.name}
             </button>
@@ -50,7 +50,7 @@ const Navbar = () => {
             <button
              key={link.name}
              onClick={() => scrollToSection(link.href)}
-             className="text-purple-400 block w-full text-left hover:text-primary transition-smooth font-medium py-2"
+             className="text-primary-foreground block w-full text-left hover:text-primary transition-smooth font-medium py-2"
             >
               {link.name}
             </button>

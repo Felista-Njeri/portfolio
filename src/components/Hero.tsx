@@ -1,5 +1,6 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { useState, useEffect } from "react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,11 +33,9 @@ const Hero = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a href="#projects">
-             <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
+             <button onClick={() => scrollToSection("projects")}  className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
               View My Work
             </button>
-            </a>
             <button className="px-8 py-4 border border-purple-400 text-purple-400 rounded-full font-semibold transition-all duration-300 hover:bg-purple-400 hover:text-white hover:scale-105">
               Download CV
             </button>

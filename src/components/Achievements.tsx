@@ -3,62 +3,69 @@ import { Award } from "lucide-react";
 const Achievements = () => {
   const achievements = [
     {
-      title: "1st Place, Base Batches 001 DeFi Track Africa",
+      icon: "🥇",
+      title: "1st Place",
+      event: "1st Place, Base Batches 001 DeFi Track Africa",
       date: "June 2025",
-      rank: "1st",
-      color: "from-yellow-400 to-yellow-600",
     },
     {
-      title: "1st Runner-Up, NSE/Hedera Hackathon Nairobi",
+      icon: "🥈",
+      title: "1st Runner-Up",
+      event: "1st Runner-Up, NSE/Hedera Hackathon Nairobi",
       date: "April 2025",
-      rank: "2nd",
-      color: "from-gray-300 to-gray-500",
     },
     {
-      title: "2nd Place, UoN Algorand Hackathon",
+      icon: "🥈",
+      title: "2nd Place",
+      event: "2nd Place, UoN Algorand Hackathon",
       date: "March 2024",
-      rank: "2nd",
-      color: "from-orange-400 to-orange-600",
     },
   ];
 
   return (
-    <section id="achievements" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Achievements
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-        </div>
+    <section id="achievements" className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary/0">
+      <div className="container mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Section header */}
+          <div className="mb-16 animate-fade-in">
+            <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
+              ACHIEVEMENTS
+            </h2>
+            <div className="text-3xl">✦</div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {achievements.map((achievement, idx) => (
-            <div
-              key={idx}
-              className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-2xl hover:scale-105 hover:border-purple-500/30 transition-all duration-300 group relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
-              
-              <div className="relative">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${achievement.color} flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300`}>
-                  <Award className="w-8 h-8 text-white" />
+          {/* Achievements grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {achievements.map((achievement, index) => (
+              <div
+                key={index}
+                className="group border border-gray-500 rounded-lg p-8 text-center hover:border-foreground hover:scale-105 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold tracking-tight">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {achievement.event}
+                  </p>
+                  <p className="text-xs text-muted-foreground/80 font-medium">
+                    {achievement.date}
+                  </p>
                 </div>
-
-                <div className="mb-4">
-                  <span className={`inline-block px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r ${achievement.color} text-white`}>
-                    {achievement.rank === "1st" ? "🥇 1st Place" : achievement.rank === "2nd" ? "🥈 2nd Place" : "Runner-Up"}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
-                  {achievement.title}
-                </h3>
-
-                <p className="text-blue-400 font-medium">{achievement.date}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Additional info */}
+          <div className="mt-16 text-center animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-6 py-3 border border-gray-500 hover:border-foreground rounded-full">
+              <Award className="w-5 h-5 text-muted-foreground" />
+              <span className="text-sm font-medium text-muted-foreground">
+                Multiple hackathon wins demonstrating innovation in blockchain & Web3
+              </span>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

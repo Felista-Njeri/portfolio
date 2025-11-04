@@ -55,7 +55,7 @@ const WorkExperience = () => {
           {/* Section header */}
           <div className="mb-16 animate-fade-in">
             <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
-              EXPERIENCE
+              WORK
             </h2>
             <div className="text-3xl">✦</div>
           </div>

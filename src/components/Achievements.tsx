@@ -28,8 +28,8 @@ const Achievements = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="mb-16 animate-fade-in">
-            <h2 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
-              ACHIEVEMENTS
+            <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
+              WINS
             </h2>
             <div className="text-3xl">✦</div>
           </div>

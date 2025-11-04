@@ -24,8 +24,6 @@ const WorkExperience = () => {
           achievements: [
             "Developed the web interface for Startup School Kenya, a national online training platform for early-stage entrepreneurs under the Kenya National Innovation Agency (KENIA).",
             "Implemented multi-role user functionality using Next.js, Tailwind, Shadcn, and Axios, ensuring smooth and secure interaction across modules.",
-            "Built admin dashboards enabling creation of learning modules, uploading lecture materials (PDF/video), managing hackathons, and approving applications.",
-            "Developed student and mentor interfaces supporting course participation, quizzes, certification, and hackathon judging workflows.",
             "Collaborated with backend engineers integrating Django REST APIs, achieving a reliable and responsive system across all user roles.",
           ],
         },
@@ -34,7 +32,6 @@ const WorkExperience = () => {
           achievements: [
             "Accelerated financial data reconciliation time by 70% by building responsive Next.js dashboards that replaced manual Excel processes.",
             "Reduced loan tracking errors by 80% through API-driven automation of member-level loan and repayment processes, increasing funding cycle efficiency.",
-            "Enhanced financial transparency for low-income users by designing real-time wallet dashboards showing deposits, balances, and savings trends.",
             "Decreased manual reporting time by 80% by integrating backend APIs with analytics components, producing automated visual reports and metrics.",
           ],
         },
@@ -51,7 +48,6 @@ const WorkExperience = () => {
             "Drove 35% increase in Algokit downloads by delivering technical demos, publishing developer documentation, and providing 1:1 developer support.",
             "Boosted local developer adoption of Algorand tools by hosting webinars with a 50%+ turnout rate, educating participants on the protocol's benefits.",
             "Designed a blockchain-based land registry system that reduced fraud risk by enabling immutable property records and improving ownership transparency.",
-            "Presented the prototype to Algorand executives, earning recognition for innovation and scalability, positioning it as a model for future grant initiatives.",
           ],
         },
       ],

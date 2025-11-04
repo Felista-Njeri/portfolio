@@ -1,133 +1,191 @@
-import { Github, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { Github, Linkedin, Mail, MapPin, Phone, Send, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "njeerikamau2@gmail.com",
+      href: "mailto:njeerikamau2@gmail.com",
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Available for Remote Work",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+254 712345678",
+      href: "tel:+254712345678",
+    },
+  ];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.error("Message failed to send. Please use my email.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Let's Connect
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-        </div>
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Section header */}
+          <div className="mb-16 animate-fade-in text-center">
+            <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
+              LET'S CONNECT
+            </h2>
+            <div className="text-3xl mb-6">✦</div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              I'm always excited to discuss new opportunities, innovative projects, and ways we can collaborate to bring your ideas to life. Let's build something amazing together!
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                I'm always excited to discuss new opportunities, innovative projects, 
-                and ways we can collaborate to bring your ideas to life. Let's build something amazing together!
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">Email</p>
-                    <p className="text-gray-400">
-                        <a href="mailto:njeerikamau2@gmail.com">njeerikamau2@gmail.com</a>
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">Location</p>
-                    <p className="text-gray-400">Available for Remote Work</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">Phone</p>
-                    <p className="text-gray-400">+254 712345678</p>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact info */}
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <h3 className="text-3xl font-bold tracking-tight mb-6">
+                  Get in Touch
+                </h3>
               </div>
-            </div>
 
-            {/* Social Links */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-2xl">
-              <h3 className="text-xl font-bold text-white mb-6">Follow Me</h3>
+              {contactInfo.map((info) => {
+                const Icon = info.icon;
+                const content = (
+                  <div className="mb-4 flex items-start gap-4 p-6 hover:scale-105 rounded-lg border border-gray-500 hover:border-foreground transition-all duration-300">
+                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-md flex items-center justify-center flex-shrink-0">
+                      <Icon size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">{info.label}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {info.value}
+                      </p>
+                    </div>
+                  </div>
+                );
+
+                return info.href ? (
+                  <a key={info.label} href={info.href}>
+                    {content}
+                  </a>
+                ) : (
+                  <div key={info.label}>{content}</div>
+                );
+              })}
+              {/* Social Links */}
+            <div className="rounded-xl p-6 border border-gray-700">
+              <h3 className="text-lg text-foreground font-semibold mb-6">Follow Me</h3>
               <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/felista-njeri" target="_blank" className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-bold">in</span>
+                <a href="https://www.linkedin.com/in/felista-njeri" target="_blank" className="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-foreground">
+                  <Linkedin className="text-white"/>
                 </a>
-                <a href="https://x.com/njerinjeri__" target="_blank" className="w-12 h-12 bg-gradient-to-r from-gray-800 to-black rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-bold">X</span>
+                <a href="https://x.com/njerinjeri__" target="_blank" className="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-foreground">
+                  <Twitter className="text-white"/>
                 </a>
-                <a href="https://github.com/Felista-Njeri" target="_blank" className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <a href="https://github.com/Felista-Njeri" target="_blank" className="w-12 h-12 border border-gray-700 rounded-lg flex items-center justify-center hover:border-foreground">
                   <Github className="text-white" size={22}/>
                 </a>
               </div>
             </div>
-          </div>
+            </div>
 
-          {/* Contact Form */}
-          <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-2xl">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-white font-medium mb-2">Name</label>
-                  <input 
-                    type="text" 
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
+            {/* Contact Form */}
+            <div className="animate-fade-in">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your Name"
+                    className="border border-gray-600 focus:border-foreground"
+                    required
                   />
                 </div>
-                <div>
-                  <label className="block text-white font-medium mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-white font-medium mb-2">Subject</label>
-                <input 
-                  type="text" 
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
-                  placeholder="Project Discussion"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-white font-medium mb-2">Message</label>
-                <textarea 
-                  rows={6}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300 resize-none"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit"
-                className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
 
-        {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-white/10">
-          <p className="text-gray-400">
-            © 2025 Felista Njeri. Crafted with passion and precision.
-          </p>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Project Discussion"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project..."
+                    rows={6}
+                    required
+                  />
+                </div>
+
+                <Button type="submit" size="lg" className="w-full font-medium">
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-24 pt-8 border-t border-border text-center animate-fade-in">
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Felista Njeri. Crafted with passion and precision.
+            </p>
+          </div>
         </div>
       </div>
     </section>

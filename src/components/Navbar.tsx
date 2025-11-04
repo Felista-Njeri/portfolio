@@ -21,43 +21,49 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="container m-auto sticky top-0 z-50 border-b border-border/10 overflow-x-hidden">
-      <div className="container m-auto h-14 flex items-center pr-4 overflow-x-hidden">
-        <nav className="ml-auto hidden md:flex items-center space-x-6 pr-10">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className="text-primary-foreground"
-            >
-              {link.name}
-            </button>
-          ))}
-        </nav>
-        {/* Mobile Menu Button */}
-        <button
-          className="ml-auto md:hidden text-purple-400"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-foreground/80">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8 ml-auto">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href)}
+                className="font-medium text-foreground hover:underline transition-colors cursor-pointer"
+              >
+                {link.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="ml-auto md:hidden p-2 text-foreground"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden py-6 space-y-4 animate-fade-in bg-slate-900">
-          {navLinks.map((link) => (
-            <button
-             key={link.name}
-             onClick={() => scrollToSection(link.href)}
-             className="text-primary-foreground block w-full text-left hover:text-primary transition-smooth font-medium py-2"
-            >
-              {link.name}
-            </button>
-          ))}
+        <div className="md:hidden border-t border-foreground/80">
+          <div className="px-4 pt-2 pb-4 space-y-2">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href)}
+                className="text-foreground block w-full text-left hover:text-primary transition-smooth font-medium py-2"
+              >
+                {link.name}
+              </button>
+            ))}
+          </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 

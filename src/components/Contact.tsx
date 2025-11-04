@@ -181,7 +181,7 @@ const Contact = () => {
           </div>
 
           {/* Footer */}
-          <div className="mt-24 pt-8 border-t border-border text-center animate-fade-in">
+          <div className="mt-24 pt-8 border-t border-foreground/80 text-center animate-fade-in">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Felista Njeri. Crafted with passion and precision.
             </p>
